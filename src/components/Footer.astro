@@ -1,3 +1,7 @@
+---
+import { Links } from "@data/config";
+---
+
 <footer class="park-width mt-auto w-full">
   <div class="container px-6 py-8 mx-auto">
     <div class="text-center">
@@ -7,47 +11,21 @@
         >The Park Blog</a
       >
 
-      <div class="flex flex-wrap justify-center mt-5 -mx-4">
-        <a
-          href="#"
-          class="mx-4 text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400"
-          aria-label="Reddit"
-        >
-          Home
-        </a>
-
-        <a
-          href="#"
-          class="mx-4 text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400"
-          aria-label="Reddit"
-        >
-          About
-        </a>
-
-        <a
-          href="#"
-          class="mx-4 text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400"
-          aria-label="Reddit"
-        >
-          Teams
-        </a>
-
-        <a
-          href="#"
-          class="mx-4 text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400"
-          aria-label="Reddit"
-        >
-          Privacy
-        </a>
-
-        <a
-          href="#"
-          class="mx-4 text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400"
-          aria-label="Reddit"
-        >
-          Cookies
-        </a>
-      </div>
+      <ul class="flex flex-wrap justify-center mt-5 -mx-4">
+        {
+          Links.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="mx-4 text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400"
+                aria-label={link.title}
+              >
+                {link.title}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
     </div>
 
     <hr class="my-6 border-gray-200 md:my-10 dark:border-gray-700" />

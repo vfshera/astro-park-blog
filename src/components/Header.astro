@@ -1,1 +1,27 @@
-<header class="park-width w-full">Header</header>
+---
+import { Links } from "@data/config";
+---
+
+<header
+  class="sticky z-50 bg-gray-800 top-0 park-width w-full flex items-center justify-between py-3"
+>
+  <a href="/">
+    <p class="font-bold">The Park Blog</p>
+  </a>
+  <nav id="MainNav">
+    <ul class="flex items-center gap-2">
+      {
+        Links.map((link) => (
+          <li class="font-semibold  px-2 pb-1">
+            <a
+              href={link.href}
+              class="text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400"
+            >
+              {link.title}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>
