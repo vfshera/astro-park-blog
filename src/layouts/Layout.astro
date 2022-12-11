@@ -23,12 +23,20 @@ const { title = SITE.name, description = SITE.description } = Astro.props;
 
     <BaseHead title={title} description={description} />
   </head>
-  <body class="flex flex-col">
+  <body class="flex flex-col h-full dark:bg-gray-800 dark:text-gray-100">
     <Header />
     <main id="park">
       <slot />
     </main>
     <Footer />
-    <style is:global></style>
+    <style is:global>
+      html {
+        @apply min-h-full h-full;
+      }
+
+      .park-width {
+        @apply mx-auto max-w-screen-md;
+      }
+    </style>
   </body>
 </html>
