@@ -1,10 +1,239 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "@layouts/Layout.astro";
 ---
 
 <Layout title="Welcome to Park">
-  <main id="HomePage">
-    <h1>This is Park Blog</h1>
+  <main id="HomePage" class="park-width">
+    <!-- HERO -->
+
+    <!-- LATEST -->
+    <section class="latest">
+      <a
+        rel="noopener noreferrer"
+        href="#"
+        class="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 dark:bg-gray-900"
+      >
+        <img
+          src="https://source.unsplash.com/random/480x360"
+          alt=""
+          class="object-cover w-full h-64 rounded sm:h-96 lg:col-span-7 dark:bg-gray-500"
+        />
+        <div class="p-6 space-y-2 lg:col-span-5">
+          <h3
+            class="text-2xl font-semibold sm:text-4xl group-hover:underline group-focus:underline"
+          >
+            Noster tincidunt reprimique ad pro
+          </h3>
+          <span class="text-xs dark:text-gray-400">February 19, 2021</span>
+          <p>
+            Ei delenit sensibus liberavisse pri. Quod suscipit no nam. Est in
+            graece fuisset, eos affert putent doctus id.
+          </p>
+        </div>
+      </a>
+    </section>
+
+    <!-- MORE POSTS -->
+    <section class="py-6 sm:py-12">
+      <div class="mx-auto space-y-8">
+        <div class="space-y-2">
+          <h2 class="text-3xl font-bold">Partem reprimique an pro</h2>
+          <p class="font-serif text-sm dark:text-gray-400">
+            Qualisque erroribus usu at, duo te agam soluta mucius.
+          </p>
+        </div>
+        <div
+          class="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-3"
+        >
+          <article class="flex flex-col dark:bg-gray-900">
+            <a
+              rel="noopener noreferrer"
+              href="#"
+              aria-label="Te nulla oportere reprimique his dolorum"
+            >
+              <img
+                alt=""
+                class="object-cover w-full h-52 dark:bg-gray-500"
+                src="https://source.unsplash.com/200x200/?fashion?1"
+              />
+            </a>
+            <div class="flex flex-col flex-1 p-6">
+              <a
+                rel="noopener noreferrer"
+                href="#"
+                aria-label="Te nulla oportere reprimique his dolorum"></a>
+              <a
+                rel="noopener noreferrer"
+                href="#"
+                class="text-xs tracking-wider uppercase hover:underline dark:text-violet-400"
+                >Convenire</a
+              >
+              <h3 class="flex-1 py-2 text-lg font-semibold leading-snug">
+                Te nulla oportere reprimique his dolorum
+              </h3>
+              <div
+                class="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-400"
+              >
+                <span>June 1, 2020</span>
+                <span>2.1K views</span>
+              </div>
+            </div>
+          </article>
+          <article class="flex flex-col dark:bg-gray-900">
+            <a
+              rel="noopener noreferrer"
+              href="#"
+              aria-label="Te nulla oportere reprimique his dolorum"
+            >
+              <img
+                alt=""
+                class="object-cover w-full h-52 dark:bg-gray-500"
+                src="https://source.unsplash.com/200x200/?fashion?2"
+              />
+            </a>
+            <div class="flex flex-col flex-1 p-6">
+              <a
+                rel="noopener noreferrer"
+                href="#"
+                aria-label="Te nulla oportere reprimique his dolorum"></a>
+              <a
+                rel="noopener noreferrer"
+                href="#"
+                class="text-xs tracking-wider uppercase hover:underline dark:text-violet-400"
+                >Convenire</a
+              >
+              <h3 class="flex-1 py-2 text-lg font-semibold leading-snug">
+                Te nulla oportere reprimique his dolorum
+              </h3>
+              <div
+                class="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-400"
+              >
+                <span>June 2, 2020</span>
+                <span>2.2K views</span>
+              </div>
+            </div>
+          </article>
+          <article class="flex flex-col dark:bg-gray-900">
+            <a
+              rel="noopener noreferrer"
+              href="#"
+              aria-label="Te nulla oportere reprimique his dolorum"
+            >
+              <img
+                alt=""
+                class="object-cover w-full h-52 dark:bg-gray-500"
+                src="https://source.unsplash.com/200x200/?fashion?3"
+              />
+            </a>
+            <div class="flex flex-col flex-1 p-6">
+              <a
+                rel="noopener noreferrer"
+                href="#"
+                aria-label="Te nulla oportere reprimique his dolorum"></a>
+              <a
+                rel="noopener noreferrer"
+                href="#"
+                class="text-xs tracking-wider uppercase hover:underline dark:text-violet-400"
+                >Convenire</a
+              >
+              <h3 class="flex-1 py-2 text-lg font-semibold leading-snug">
+                Te nulla oportere reprimique his dolorum
+              </h3>
+              <div
+                class="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-400"
+              >
+                <span>June 3, 2020</span>
+                <span>2.3K views</span>
+              </div>
+            </div>
+          </article>
+          <article class="flex flex-col dark:bg-gray-900">
+            <a
+              rel="noopener noreferrer"
+              href="#"
+              aria-label="Te nulla oportere reprimique his dolorum"
+            >
+              <img
+                alt=""
+                class="object-cover w-full h-52 dark:bg-gray-500"
+                src="https://source.unsplash.com/200x200/?fashion?4"
+              />
+            </a>
+            <div class="flex flex-col flex-1 p-6">
+              <a
+                rel="noopener noreferrer"
+                href="#"
+                aria-label="Te nulla oportere reprimique his dolorum"></a>
+              <a
+                rel="noopener noreferrer"
+                href="#"
+                class="text-xs tracking-wider uppercase hover:underline dark:text-violet-400"
+                >Convenire</a
+              >
+              <h3 class="flex-1 py-2 text-lg font-semibold leading-snug">
+                Te nulla oportere reprimique his dolorum
+              </h3>
+              <div
+                class="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-400"
+              >
+                <span>June 4, 2020</span>
+                <span>2.4K views</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <div class="dark:bg-gray-800 dark:text-gray-100">
+      <div
+        class="container max-w-4xl px-10 py-6 mx-auto rounded-lg shadow-sm dark:bg-gray-900"
+      >
+        <div class="flex items-center justify-between">
+          <span class="text-sm dark:text-gray-400">Jun 1, 2020</span>
+          <a
+            rel="noopener noreferrer"
+            href="#"
+            class="px-2 py-1 font-bold rounded dark:bg-violet-400 dark:text-gray-900"
+            >Javascript</a
+          >
+        </div>
+        <div class="mt-3">
+          <a
+            rel="noopener noreferrer"
+            href="#"
+            class="text-2xl font-bold hover:underline"
+            >Nos creasse pendere crescit angelos etc</a
+          >
+          <p class="mt-2">
+            Tamquam ita veritas res equidem. Ea in ad expertus paulatim
+            poterunt. Imo volo aspi novi tur. Ferre hic neque vulgo hae athei
+            spero. Tantumdem naturales excaecant notaverim etc cau perfacile
+            occurrere. Loco visa to du huic at in dixi aër.
+          </p>
+        </div>
+        <div class="flex items-center justify-between mt-4">
+          <a
+            rel="noopener noreferrer"
+            href="#"
+            class="hover:underline dark:text-violet-400">Read more</a
+          >
+          <div>
+            <a rel="noopener noreferrer" href="#" class="flex items-center">
+              <img
+                src="https://source.unsplash.com/50x50/?portrait"
+                alt="avatar"
+                class="object-cover w-10 h-10 mx-4 rounded-full dark:bg-gray-500"
+              />
+              <span class="hover:underline dark:text-gray-400"
+                >Leroy Jenkins</span
+              >
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 </Layout>
 
