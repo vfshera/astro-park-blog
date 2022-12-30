@@ -1,0 +1,26 @@
+---
+import { getPosts } from "@data/firebase";
+import Layout from "@layouts/Layout.astro";
+type Post = {
+  title: string;
+  content: string;
+  created_at: any;
+};
+const posts = (await getPosts()) as Post[];
+
+export async function getStaticPaths() {
+  return posts.map((post) => {
+    const slug = post.title.toLowerCase().replaceAll(" ", "-");
+    return {
+      params: { slug },
+      props: post,
+    };
+  });
+}
+
+const post = Astro.props;
+---
+
+<Layout>
+  <h1>{JSON.stringify(post)}</h1>
+</Layout>

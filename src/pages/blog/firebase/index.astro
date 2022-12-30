@@ -1,0 +1,29 @@
+---
+import { getPosts } from "@data/firebase";
+import Layout from "@layouts/Layout.astro";
+type Post = {
+  title: string;
+  content: string;
+  created_at: any;
+};
+const posts = (await getPosts()) as Post[];
+---
+
+<Layout>
+  <h1>Firstore Posts</h1>
+
+    {
+      posts.map((post) => (
+        <li>
+          <a
+            href={`/blog/firebase/${post.title
+              .toLowerCase()
+              .replaceAll(" ", "-")}`}
+          >
+            {post.title}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</Layout>

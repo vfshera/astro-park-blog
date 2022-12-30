@@ -25,9 +25,9 @@ const { title = SITE.name, description = SITE.description } = Astro.props;
   </head>
   <body class="flex flex-col h-full dark:bg-gray-800 dark:text-gray-100">
     <Header />
-    <main id="park">
+    <div id="park">
       <slot />
-    </main>
+    </div>
     <Footer />
     <style is:global>
       html {

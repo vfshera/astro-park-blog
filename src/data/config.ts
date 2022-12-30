@@ -14,7 +14,7 @@ export const Links: NavLink[] = [
   },
   {
     title: "Newsletter",
-    href: "/",
+    href: "/newsletter",
   },
   {
     title: "About",
