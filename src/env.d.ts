@@ -10,7 +10,7 @@ interface Post {
 interface FirePost {
   title: string;
   content: string;
-  created_at: any;
+  created_at: { seconds: number; nanoseconds: number };
 }
 interface INews {
   date: string;

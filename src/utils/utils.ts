@@ -10,8 +10,8 @@ export function setDescription(desc: string) {
   return desc === "" ? SITE.description : desc;
 }
 
-export function convertTimestamp(timestamp: any) {
-  let date = timestamp.toDate();
+export function convertTimestamp(seconds: number) {
+  let date = new Date(seconds * 1000);
   let mm = date.getMonth();
   let dd = date.toLocaleString("default", {
     month: "short",
