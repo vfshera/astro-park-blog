@@ -1,14 +1,14 @@
 ---
 import { getPosts } from "@data/firebase";
 import Layout from "@layouts/Layout.astro";
+import { slugify } from "@utils/utils";
 
 export async function getStaticPaths() {
   const posts = (await getPosts()) as FirePost[];
 
-  return posts.map((post) => {
-    const slug = post.title.toLowerCase().replaceAll(" ", "-");
+  return posts.map((post, i) => {
     return {
-      params: { slug },
+      params: { id: i + 1, slug: slugify(post.title) },
       props: post,
     };
   });
@@ -22,7 +22,7 @@ const post = Astro.props;
     <section class="py-10 flex flex-col gap-2">
       <a
         href="/blog/firebase"
-        class="px-5 rounded-lg w-max hover:bg-blue-600 py-1.5 bg-blue-500 text-white"
+        class="px-5 rounded-lg w-max mb-4 hover:bg-blue-600 py-1.5 bg-blue-500 text-white"
         >Back</a
       >
       <h1 class="text-3xl font-semibold text-blue-500">{post.title}</h1>
