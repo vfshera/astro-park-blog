@@ -1,14 +1,39 @@
 ---
+import NewsList from "@components/NewsList.astro";
 import Layout from "@layouts/Layout.astro";
+import { News } from "@data/newsletter";
 ---
 
 <Layout>
-  <main id="Newsletter">
-    <section class="mx-auto">
-      <form action="">
-        <input type="text" placeholder="Enter email" />
-        <button>Subscribe</button>
+  <main id="Newsletter" class="park-width">
+    <section class="flex flex-col gap-10 items-center py-20">
+      <h1 class="font-bold text-2xl">Sign up to our Newsletter</h1>
+      <form action="" class="flex gap-5 flex-col w-3/5">
+        <input
+          type="text"
+          name="name"
+          class="p-3 bg-transparent border focus:outline-none border-gray-50/50 rounded-lg"
+          placeholder="Enter Firstname"
+        />
+        <input
+          type="text"
+          name="name"
+          class="p-3 bg-transparent border focus:outline-none border-gray-50/50 rounded-lg"
+          placeholder="Enter email"
+        />
+        <button
+          class="bg-gray-50/10 px-10 py-4 transition-shadow duration-200 hover:shadow hover:shadow-gray-100/10 rounded-lg"
+          >Subscribe</button
+        >
       </form>
+    </section>
+    <!-- NEWSLETTER -->
+    <section class="py-6 sm:py-12 w-3/5 mx-auto">
+      <h2 class="space-y-2 text-2xl text-center font-semibold">Releases</h2>
+
+      <div class="flex flex-col mx-auto py-2 items-center">
+        {News.map((news) => <NewsList {...news} />)}
+      </div>
     </section>
   </main>
 </Layout>

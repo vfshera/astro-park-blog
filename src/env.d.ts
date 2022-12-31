@@ -2,6 +2,10 @@
 
 declare module "firebase/app";
 
+interface INews {
+  date: string;
+  title: string;
+}
 interface NavLink {
   title: string;
   href: string;
