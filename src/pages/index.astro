@@ -4,7 +4,7 @@ import Layout from "@layouts/Layout.astro";
 import { News } from "@data/newsletter";
 ---
 
-<Layout title="Welcome to Park">
+<Layout title="Welcome to Park Blog">
   <main id="HomePage" class="park-width">
     <!-- HERO -->
 
@@ -12,7 +12,7 @@ import { News } from "@data/newsletter";
     <section class="latest">
       <a
         rel="noopener noreferrer"
-        href="/blog/post"
+        href=""
         class="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 dark:bg-gray-900"
       >
         <img
@@ -43,7 +43,7 @@ import { News } from "@data/newsletter";
         <div
           class="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-3"
         >
-          {News.map((news) => <PostCard title={news.title} />)}
+          {News.map((news, i) => <PostCard id={i + 1} title={news.title} />)}
         </div>
       </div>
     </section>

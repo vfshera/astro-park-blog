@@ -1,5 +1,18 @@
 ---
 import Layout from "@layouts/Layout.astro";
+
+import { News } from "@data/newsletter";
+import { slugify } from "@utils/utils";
+export async function getStaticPaths() {
+  return News.map((post, i) => {
+    return {
+      params: { id: i + 1, slug: slugify(post.title) },
+      props: post,
+    };
+  });
+}
+
+const { title } = Astro.props;
 ---
 
 <Layout title="Post">
@@ -27,11 +40,10 @@ import Layout from "@layouts/Layout.astro";
           <a
             href="#"
             class="px-4 py-1 bg-black text-gray-200 inline-flex items-center justify-center mb-2"
-            >Nutrition</a
+            >Astro</a
           >
           <h2 class="text-4xl font-semibold text-gray-100 leading-tight">
-            Pellentesque a consectetur velit, ac molestie ipsum. Donec sodales,
-            massa et auctor.
+            {title}
           </h2>
           <div class="flex mt-3">
             <img
@@ -39,8 +51,8 @@ import Layout from "@layouts/Layout.astro";
               class="h-10 w-10 rounded-full mr-2 object-cover"
             />
             <div>
-              <p class="font-semibold text-gray-200 text-sm">Mike Sullivan</p>
-              <p class="font-semibold text-gray-400 text-xs">14 Aug</p>
+              <p class="font-semibold text-gray-200 text-sm">Franklin Shera</p>
+              <p class="font-semibold text-gray-400 text-xs">25 Dec</p>
             </div>
           </div>
         </div>
