@@ -1,7 +1,7 @@
 ---
 import { getPosts } from "@data/firebase";
 import Layout from "@layouts/Layout.astro";
-import { slugify } from "@utils/utils";
+import { convertTimestamp, slugify } from "@utils/utils";
 
 export async function getStaticPaths() {
   const posts = (await getPosts()) as FirePost[];
@@ -26,6 +26,10 @@ const post = Astro.props;
         >Back</a
       >
       <h1 class="text-3xl font-semibold text-blue-500">{post.title}</h1>
+      <p class="py-1 px-2 text-xs text-gray-50 bg-blue-500/10 w-max rounded">
+        Published on
+        {convertTimestamp(post.created_at)}
+      </p>
       <p class="text-gray-50">{post.content}</p>
     </section>
   </main>

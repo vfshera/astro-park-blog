@@ -10,8 +10,18 @@ export function setDescription(desc: string) {
   return desc === "" ? SITE.description : desc;
 }
 
+export function convertTimestamp(timestamp: any) {
+  let date = timestamp.toDate();
+  let mm = date.getMonth();
+  let dd = date.toLocaleString("default", {
+    month: "short",
+  });
+  let yyyy = date.getFullYear();
+
+  return mm + " " + dd + " " + yyyy;
+}
+
 export function randomDate() {
-  const months = [];
   const start = new Date(2020, 0, 1);
 
   const end = new Date();
