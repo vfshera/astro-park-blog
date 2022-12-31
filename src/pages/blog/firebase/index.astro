@@ -10,6 +10,7 @@ const posts = (await getPosts()) as Post[];
 ---
 
 <Layout>
+<main id="FirestoreBlog" class="park-width">
   <h1>Firstore Posts</h1>
 
     {
@@ -26,4 +27,5 @@ const posts = (await getPosts()) as Post[];
       ))
     }
   </ul>
+</main>
 </Layout>
