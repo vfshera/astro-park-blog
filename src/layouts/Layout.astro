@@ -1,16 +1,16 @@
 ---
 import "@styles/global.css";
 
-import { SITE } from "@data/config";
-import BaseHead from "@components/BaseHead.astro";
+import { setDescription, setTitle } from "@utils/utils";
+import { SEO } from "astro-seo";
+import type { Props as IAstroSEO } from "astro-seo";
+import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
-interface Props {
-  title?: string;
-  description?: string;
-}
 
-const { title = SITE.name, description = SITE.description } = Astro.props;
+interface Props extends IAstroSEO {}
+
+const { title = "", description = "", ...props } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -21,7 +21,20 @@ const { title = SITE.name, description = SITE.description } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
-    <BaseHead title={title} description={description} />
+    <SEO
+      title={setTitle(title)}
+      description={setDescription(description)}
+      {...props}
+    />
+
+    <GoogleFontsOptimizer
+      url={[
+        "https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600;700&display=swap",
+        "https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap",
+      ]}
+    />
+
+    <slot name="head" />
   </head>
   <body class="flex flex-col h-full dark:bg-gray-800 dark:text-gray-100">
     <Header />
