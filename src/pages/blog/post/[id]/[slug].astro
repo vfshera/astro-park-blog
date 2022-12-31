@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 const { title } = Astro.props;
 ---
 
-<Layout title="Post">
+<Layout title={title}>
   <main id="PostPage" class="park-width">
     <a
       href="/"
