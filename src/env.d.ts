@@ -2,6 +2,11 @@
 
 declare module "firebase/app";
 
+interface Post {
+  title: string;
+  content: string;
+  author: string;
+}
 interface FirePost {
   title: string;
   content: string;

@@ -8,10 +8,7 @@ export const Links: NavLink[] = [
     title: "Home",
     href: "/",
   },
-  {
-    title: "Posts",
-    href: "/",
-  },
+
   {
     title: "Firestore",
     href: "/blog/firebase",

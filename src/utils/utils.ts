@@ -10,6 +10,21 @@ export function setDescription(desc: string) {
   return desc === "" ? SITE.description : desc;
 }
 
+export function randomDate() {
+  const months = [];
+  const start = new Date(2020, 0, 1);
+
+  const end = new Date();
+
+  const newDate = new Date(
+    start.getTime() + Math.random() * (end.getTime() - start.getTime())
+  );
+
+  return `${newDate.getDate()} ${newDate.toLocaleString("default", {
+    month: "short",
+  })} ${newDate.getFullYear()}`;
+}
+
 //Slugify from : https://gist.github.com/hagemann/382adfc57adbd5af078dc93feef01fe1
 export function slugify(text: string): string {
   const a =
