@@ -1,4 +1,9 @@
 ---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
 ---
 
 <article class="flex flex-col dark:bg-gray-900">
@@ -8,7 +13,7 @@
     aria-label="Te nulla oportere reprimique his dolorum"
   >
     <img
-      alt=""
+      alt={title}
       class="object-cover w-full h-52 dark:bg-gray-500"
       src={`https://source.unsplash.com/200x200/?fashion?${Math.floor(
         Math.random() * 40
@@ -22,12 +27,12 @@
       aria-label="Te nulla oportere reprimique his dolorum"></a>
     <a
       rel="noopener noreferrer"
-      href="#"
+      href="/blog/post"
       class="text-xs tracking-wider uppercase hover:underline dark:text-violet-400"
-      >Convenire</a
+      >Blog</a
     >
     <h3 class="flex-1 py-2 text-lg font-semibold leading-snug">
-      This is a blog post
+      {title}
     </h3>
     <div
       class="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-400"

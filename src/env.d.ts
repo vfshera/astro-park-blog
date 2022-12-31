@@ -2,6 +2,11 @@
 
 declare module "firebase/app";
 
+interface FirePost {
+  title: string;
+  content: string;
+  created_at: any;
+}
 interface INews {
   date: string;
   title: string;

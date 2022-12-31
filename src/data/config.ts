@@ -13,6 +13,10 @@ export const Links: NavLink[] = [
     href: "/",
   },
   {
+    title: "Firestore",
+    href: "/blog/firebase",
+  },
+  {
     title: "Newsletter",
     href: "/newsletter",
   },

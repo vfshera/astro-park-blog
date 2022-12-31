@@ -1,7 +1,7 @@
 ---
-import NewsList from "@components/NewsList.astro";
 import PostCard from "@components/PostCard.astro";
 import Layout from "@layouts/Layout.astro";
+import { News } from "@data/newsletter";
 ---
 
 <Layout title="Welcome to Park">
@@ -43,7 +43,7 @@ import Layout from "@layouts/Layout.astro";
         <div
           class="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-3"
         >
-          {[0.1, 2, 3].map((x) => <PostCard />)}
+          {News.map((news) => <PostCard title={news.title} />)}
         </div>
       </div>
     </section>
