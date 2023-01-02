@@ -17,8 +17,8 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 export const getPosts = async () => {
-  const postsCol = collection(db, "posts");
-  const postsSnapshot = await getDocs(postsCol);
+  const postsColRef = collection(db, "posts");
+  const postsSnapshot = await getDocs(postsColRef);
 
   return postsSnapshot.docs.map((doc) => doc.data());
 };

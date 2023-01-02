@@ -3,18 +3,10 @@ import { getPosts } from "@data/firebase";
 import Layout from "@layouts/Layout.astro";
 import { convertTimestamp, slugify } from "@utils/utils";
 
-export async function getStaticPaths() {
-  const posts = (await getPosts()) as FirePost[];
+const id = Astro.params.id - 1;
+const posts = (await getPosts()) as FirePost[];
 
-  return posts.map((post, i) => {
-    return {
-      params: { id: i + 1, slug: slugify(post.title) },
-      props: post,
-    };
-  });
-}
-
-const post = Astro.props;
+const post = posts[id];
 ---
 
 <Layout title={post.title}>

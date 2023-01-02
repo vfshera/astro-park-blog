@@ -4,11 +4,11 @@ import Layout from "@layouts/Layout.astro";
 import { News } from "@data/newsletter";
 ---
 
-<Layout>
+<Layout title="Newsletter">
   <main id="Newsletter" class="park-width">
     <section class="flex flex-col gap-10 items-center py-20">
       <h1 class="font-bold text-2xl">Sign up to our Newsletter</h1>
-      <form action="" class="flex gap-5 flex-col w-3/5">
+      <form method="post" id="NewsletterForm" class="flex gap-5 flex-col w-3/5">
         <input
           type="text"
           name="name"
@@ -16,8 +16,8 @@ import { News } from "@data/newsletter";
           placeholder="Enter Firstname"
         />
         <input
-          type="text"
-          name="name"
+          type="email"
+          name="email"
           class="p-3 bg-transparent border focus:outline-none border-gray-50/50 rounded-lg"
           placeholder="Enter email"
         />
@@ -36,4 +36,17 @@ import { News } from "@data/newsletter";
       </div>
     </section>
   </main>
+
+  <script>
+    const form = document.querySelector("#NewsletterForm");
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const formData = new FormData(event.target);
+      fetch("/api/newsletter", {
+        method: "POST",
+        body: formData,
+      });
+    });
+  </script>
 </Layout>
