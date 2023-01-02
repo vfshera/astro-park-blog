@@ -4,6 +4,8 @@ import Layout from "@layouts/Layout.astro";
 import { slugify } from "@utils/utils";
 
 const posts = (await getPosts()) as FirePost[];
+
+console.log("POSTS", posts);
 ---
 
 <Layout title="Firestore Posts">

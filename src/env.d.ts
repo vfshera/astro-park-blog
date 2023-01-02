@@ -7,10 +7,15 @@ interface Post {
   content: string;
   author: string;
 }
+
+interface FireTimestamp {
+  seconds: number;
+  nanoseconds: number;
+}
 interface FirePost {
   title: string;
   content: string;
-  created_at: { seconds: number; nanoseconds: number };
+  created_at: FireTimestamp;
 }
 interface INews {
   date: string;

@@ -1,5 +1,10 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  DocumentData,
+} from "firebase/firestore/lite";
 
 const firebaseConfig: IFirebaseConfig = {
   apiKey: import.meta.env.FIREBASE_KEY,
@@ -16,9 +21,16 @@ const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
 
-export const getPosts = async () => {
+export const getPosts: DocumentData = async () => {
   const postsColRef = collection(db, "posts");
-  const postsSnapshot = await getDocs(postsColRef);
 
-  return postsSnapshot.docs.map((doc) => doc.data());
+  let posts: DocumentData = [];
+  try {
+    const snapshot = await getDocs(postsColRef);
+    posts = snapshot.docs.map((doc) => doc.data());
+  } catch (err) {
+    console.log(err);
+  }
+
+  return posts;
 };

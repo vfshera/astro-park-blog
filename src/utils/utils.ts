@@ -10,15 +10,17 @@ export function setDescription(desc: string) {
   return desc === "" ? SITE.description : desc;
 }
 
-export function convertTimestamp(seconds: number) {
+export function convertTimestamp(timestampObject: FireTimestamp) {
+  const { seconds } = timestampObject;
+  console.log(timestampObject);
+
   let date = new Date(seconds * 1000);
-  let mm = date.getMonth();
-  let dd = date.toLocaleString("default", {
+  let dd = date.getDate();
+  let mm = date.toLocaleString("default", {
     month: "short",
   });
-  let yyyy = date.getFullYear();
 
-  return mm + " " + dd + " " + yyyy;
+  return `${dd} ${mm} ${date.getFullYear()}`;
 }
 
 export function randomDate() {
