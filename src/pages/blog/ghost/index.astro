@@ -1,0 +1,29 @@
+---
+import { ghostPosts } from "@data/ghost-cms";
+import Layout from "@layouts/Layout.astro";
+
+const posts = (await ghostPosts()) as GhostPost[];
+---
+
+<Layout title="GhostCMS Posts">
+  <main id="GhostBlog" class="park-width">
+    <section class="py-10">
+      <h1 class="text-xl mb-2 font-bold">GhostCMS Posts</h1>
+
+      <ul class="flex flex-col gap-3">
+        {
+          posts.map((post) => (
+            <li>
+              <a
+                class="py-5 px-3 bg-gray-50/20 block"
+                href={`/blog/ghost/${post.id}/${post.slug}`}
+              >
+                {post.title}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </main>
+</Layout>

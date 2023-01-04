@@ -1,0 +1,64 @@
+---
+import { formatDate, ghostPostByID } from "@data/ghost-cms";
+import Layout from "@layouts/Layout.astro";
+
+const { id } = Astro.params;
+
+const post = (await ghostPostByID(id)) as GhostPost;
+---
+
+<Layout title={post.title}>
+  <main id="GhostPostPage" class="park-width">
+    <a
+      href="/blog/ghost"
+      class="px-5 rounded-lg mt-20 w-max hover:bg-blue-600 py-1.5 bg-blue-500 text-white"
+      >Back</a
+    >
+    <article class="mt-10">
+      <div
+        class="mb-4 md:mb-0 w-full mx-auto relative z-0"
+        style="height: 24em;"
+      >
+        <div
+          class="absolute left-0 bottom-0 w-full h-full z-10"
+          style="background-image: linear-gradient(180deg,transparent,rgba(0,0,0,.7));"
+        >
+        </div>
+        <img
+          src={post.feature_image}
+          alt={post.feature_image_alt || post.title}
+          class="absolute left-0 top-0 w-full h-full z-0 object-cover"
+        />
+        <div class="p-4 absolute bottom-0 left-0 z-20">
+          <a
+            href="#"
+            class="px-4 py-1 bg-black text-gray-200 inline-flex items-center justify-center mb-2"
+            >Astro</a
+          >
+          <h2 class="text-4xl font-semibold text-gray-100 leading-tight">
+            {post.title}
+          </h2>
+          <div class="flex mt-3">
+            <img
+              src="https://randomuser.me/api/portraits/men/97.jpg"
+              class="h-10 w-10 rounded-full mr-2 object-cover"
+            />
+            <div>
+              <p class="font-semibold text-gray-200 text-sm">
+                {post.primary_author.name}
+              </p>
+              <p class="font-semibold text-gray-400 text-xs">
+                {formatDate(post.published_at)}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        set:html={post.html}
+        class="px-4 lg:px-0 mt-12 dark:text-gray-200 text-gray-700 mx-auto text-lg leading-relaxed"
+      />
+    </article>
+  </main>
+</Layout>
