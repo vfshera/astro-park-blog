@@ -1,10 +1,13 @@
 ---
-import { formatDate, ghostPostByID } from "@data/ghost-cms";
+import { formatDate, ghost } from "@data/ghost-cms";
 import Layout from "@layouts/Layout.astro";
 
 const { id } = Astro.params;
 
-const post = (await ghostPostByID(id)) as GhostPost;
+const post: GhostPost = await ghost.posts.read({
+  id: id,
+  include: "tags,authors",
+});
 ---
 
 <Layout title={post.title}>

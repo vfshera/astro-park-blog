@@ -1,33 +1,10 @@
-const GHOST_CMS_DOMAIN = import.meta.env.GHOST_CMS_DOMAIN;
-const GHOST_CMS_CONTENT_API_KEY = import.meta.env.GHOST_CMS_CONTENT_API_KEY;
+import GhostContentApi, { GhostAPI } from "@tryghost/content-api";
 
-function baseUrl(resource: string, includes?: string[]): string {
-  let url = `${GHOST_CMS_DOMAIN}/ghost/api/content/${resource}/?key=${GHOST_CMS_CONTENT_API_KEY}`;
-
-  if (includes) {
-    url += `&include=${includes?.join(",")}`;
-  }
-
-  return url;
-}
-
-export async function ghostPosts() {
-  const { posts } = await fetch(baseUrl("posts"))
-    .then((res) => res.json())
-    .catch((err) => console.log(err));
-
-  return posts;
-}
-
-export async function ghostPostByID(id: string) {
-  const {
-    posts: [post],
-  } = await fetch(baseUrl(`posts/${id}`, ["authors", "tags"]))
-    .then((res) => res.json())
-    .catch((err) => console.log(err));
-
-  return post;
-}
+export const ghost: GhostAPI = new GhostContentApi({
+  url: import.meta.env.GHOST_CMS_DOMAIN,
+  key: import.meta.env.GHOST_CMS_CONTENT_API_KEY,
+  version: "v5.0",
+});
 
 export function formatDate(dateString: string): string {
   const date = new Date(dateString);

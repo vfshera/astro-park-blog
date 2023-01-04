@@ -14,6 +14,10 @@ export const Links: NavLink[] = [
     href: "/blog/firebase",
   },
   {
+    title: "GhostCMS",
+    href: "/blog/ghost",
+  },
+  {
     title: "Newsletter",
     href: "/newsletter",
   },

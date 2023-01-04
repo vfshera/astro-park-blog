@@ -1,8 +1,12 @@
 ---
-import { ghostPosts } from "@data/ghost-cms";
+import { ghost } from "@data/ghost-cms";
 import Layout from "@layouts/Layout.astro";
 
-const posts = (await ghostPosts()) as GhostPost[];
+const posts: GhostPost[] = await ghost.posts
+  .browse({ limit: 5 })
+  .catch((err) => {
+    console.error(err);
+  });
 ---
 
 <Layout title="GhostCMS Posts">

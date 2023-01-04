@@ -12,7 +12,6 @@ export function setDescription(desc: string) {
 
 export function convertTimestamp(timestampObject: FireTimestamp) {
   const { seconds } = timestampObject;
-  console.log(timestampObject);
 
   let date = new Date(seconds * 1000);
   let dd = date.getDate();
