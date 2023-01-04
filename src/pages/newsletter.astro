@@ -43,8 +43,10 @@ import { News } from "@data/newsletter";
     form.addEventListener("submit", (event) => {
       event.preventDefault();
       const formData = new FormData(event.target);
+
       fetch("/api/newsletter", {
         method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: formData,
       });
     });
