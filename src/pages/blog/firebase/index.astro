@@ -3,9 +3,13 @@ import { getPosts } from "@data/firebase";
 import Layout from "@layouts/Layout.astro";
 import { slugify } from "@utils/utils";
 
-const posts = (await getPosts()) as FirePost[];
+let posts: FirePost[] = [];
 
-console.log("POSTS", posts);
+async function fetchPosts() {
+  posts = (await getPosts()) as FirePost[];
+}
+
+await fetchPosts();
 ---
 
 <Layout title="Firestore Posts">
@@ -29,4 +33,8 @@ console.log("POSTS", posts);
       </ul>
     </section>
   </main>
+
+  <script>
+    import { onChange } from "@data/firebase";
+  </script>
 </Layout>
