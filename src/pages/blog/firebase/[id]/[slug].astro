@@ -7,6 +7,11 @@ const id = Astro.params.id - 1;
 const posts = (await getPosts()) as FirePost[];
 
 const post = posts[id];
+
+if (!post) {
+  // simple redirect
+  return Astro.redirect("/404", "301");
+}
 ---
 
 <Layout title={post.title}>

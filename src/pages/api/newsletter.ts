@@ -12,6 +12,9 @@ export const post: APIRoute = async ({ request }) => {
     };
   }
 
+  if (request.headers.get("Content-Type") === "application/json") {
+    console.log("json()");
+  }
   return {
     body: JSON.stringify({
       message: request.body,

@@ -10,6 +10,11 @@ async function fetchPosts() {
 }
 
 await fetchPosts();
+
+if (posts.length === 0) {
+  // simple redirect
+  return Astro.redirect("/404", "301");
+}
 ---
 
 <Layout title="Firestore Posts">

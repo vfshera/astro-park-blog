@@ -7,6 +7,11 @@ const posts: GhostPost[] = await ghost.posts
   .catch((err) => {
     console.error(err);
   });
+
+if (!posts) {
+  // simple redirect
+  return Astro.redirect("/404", "301");
+}
 ---
 
 <Layout title="GhostCMS Posts">

@@ -9,6 +9,11 @@ const post: GhostPost = await ghost.posts.read({
   id: id,
   include: "tags,authors",
 });
+
+if (!post) {
+  // simple redirect
+  return Astro.redirect("/404", "301");
+}
 ---
 
 <Layout title={post.title}>
