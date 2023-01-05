@@ -1,6 +1,7 @@
 ---
-import { formatDate, ghost } from "@data/ghost-cms";
+import { ghost } from "@data/ghost-cms";
 import Layout from "@layouts/Layout.astro";
+import { formatDate } from "@utils/date";
 
 const { id } = Astro.params;
 
@@ -51,7 +52,7 @@ const post: GhostPost = await ghost.posts.read({
                 {post.primary_author.name}
               </p>
               <p class="font-semibold text-gray-400 text-xs">
-                {formatDate(post.published_at)}
+                {formatDate(new Date(post.published_at))}
               </p>
             </div>
           </div>
