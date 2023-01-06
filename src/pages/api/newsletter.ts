@@ -5,19 +5,23 @@ export const post: APIRoute = async ({ request }) => {
 
   if (url.pathname !== "/api/newsletter") {
     //invalid request origin
-    return {
-      body: JSON.stringify({
-        message: "Hmm",
-      }),
-    };
+    return new Response(null, { status: 400 });
   }
 
   if (request.headers.get("Content-Type") === "application/json") {
-    console.log("json()");
+    const sub: { name: string; email: string } = await request.json();
+
+    //subscribe user
+
+    return new Response(
+      JSON.stringify({
+        message: `Hello ${sub.name}, Thanks for subscribing with ${sub.email}.`,
+      }),
+      { status: 200 }
+    );
   }
-  return {
-    body: JSON.stringify({
-      message: request.body,
-    }),
-  };
+
+  // otherwise
+
+  return new Response(null, { status: 400 });
 };
