@@ -40,14 +40,23 @@ import { News } from "@data/newsletter";
   <script>
     const form = document.querySelector("#NewsletterForm");
 
+    function FormDataToJSON(fd: FormData) {
+      let ConvertedJSON = {};
+      for (const [key, value] of fd.entries()) {
+        ConvertedJSON[key] = value;
+      }
+
+      return ConvertedJSON;
+    }
+
     form.addEventListener("submit", (event) => {
       event.preventDefault();
-      const formData = new FormData(event.target);
+      const fields = FormDataToJSON(new FormData(event.target));
 
       fetch("/api/newsletter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: formData,
+        body: JSON.stringify(fields),
       });
     });
   </script>
