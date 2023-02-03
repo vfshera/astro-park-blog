@@ -1,0 +1,33 @@
+---
+import Layout from "@layouts/Layout.astro";
+
+import { airtable } from "@data/airtable";
+const base = airtable.base(import.meta.env.AIRTABLE_BASE);
+const table = base("comments");
+const comments = await table
+  .select({ fields: ["name", "comment"] })
+  .firstPage();
+---
+
+<Layout title="Airtable Comments">
+  <main id="GhostBlog" class="park-width">
+    <section class="py-10">
+      <h1 class="text-xl mb-2 font-bold">Airtable Comments</h1>
+
+      <ul class="flex flex-col gap-3">
+        {
+          comments?.map((comment) => (
+            <li>
+              <a
+                class="py-5 px-3 bg-gray-50/20 block"
+                href={`/blog/airtable/${comment.id}`}
+              >
+                {comment.fields.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </main>
+</Layout>

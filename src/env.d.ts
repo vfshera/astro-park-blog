@@ -47,6 +47,9 @@ interface ImportMetaEnv {
 
   readonly GHOST_CMS_DOMAIN: string;
   readonly GHOST_CMS_CONTENT_API_KEY: string;
+
+  readonly AIRTABLE_API_KEY: string;
+
 }
 
 interface ImportMeta {
