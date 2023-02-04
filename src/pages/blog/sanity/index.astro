@@ -1,0 +1,29 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { getPosts } from "@data/sanity";
+
+const Posts = await getPosts();
+---
+
+<Layout title="Sanity Posts">
+  <main id="SanityBlog" class="park-width">
+    <section class="py-10">
+      <h1 class="text-xl mb-2 font-bold">Sanity Posts</h1>
+
+      <ul class="flex flex-col gap-3">
+        {
+          Posts.map((post) => (
+            <li>
+              <a
+                class="py-5 px-3 bg-gray-50/20 block"
+                href={`/blog/sanity/${post._id}/${post.slug.current}`}
+              >
+                {post.title}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </main>
+</Layout>

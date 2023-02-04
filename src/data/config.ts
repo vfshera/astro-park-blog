@@ -14,6 +14,10 @@ export const Links: NavLink[] = [
     href: "/blog/airtable",
   },
   {
+    title: "Sanity",
+    href: "/blog/sanity",
+  },
+  {
     title: "Firestore",
     href: "/blog/firebase",
   },
